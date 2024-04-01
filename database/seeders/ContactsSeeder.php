@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 
 class ContactsSeeder extends Seeder
 {
@@ -13,20 +14,18 @@ class ContactsSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         DB::table('contacts')->insert([
-            'name'             => 'João Silva',
-            'email'            => 'joao@email.com',
-            'telefone'         => '(00) 9999-9999',
-            'data_nascimento'  => '1990-05-15'
+            'name' => Crypt::encryptString('Marina Matulle'),
+            'email' => Crypt::encryptString('marinamatulle@mail.com'),
+            'telefone' => Crypt::encryptString('(42) 999999999'),
+            'data_nascimento' => Crypt::encryptString('2000-10-26')
         ]);
 
         DB::table('contacts')->insert([
-            'name'             => 'Maria Souza',
-            'email'            => 'maria@email.com',
-            'telefone'         => '(00) 5456-9999',
-            'data_nascimento'  => '2020-05-18'
+            'name' => Crypt::encryptString('Stheffany Hadlich'),
+            'email' => Crypt::encryptString('stheffanyhadlich@mail.com'),
+            'telefone' => Crypt::encryptString('(42) 999999999'),
+            'data_nascimento' => Crypt::encryptString('1997-04-05')
         ]);
-
     }
 }
